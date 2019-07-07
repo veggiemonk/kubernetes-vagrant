@@ -2,28 +2,23 @@
 
 Spin up a single kubernetes node in a VM and use kubectl to manage it.
 
-Based on [this article](https://medium.com/@lizrice/kubernetes-in-vagrant-with-kubeadm-21979ded6c63) written by [Liz Rice](https://github.com/lizrice)
+~~Based on [this article](https://medium.com/@lizrice/kubernetes-in-vagrant-with-kubeadm-21979ded6c63) written by [Liz Rice](https://github.com/lizrice)~~
 
-This repo will try to automate things in order to provide fast feedback when testing something on kubernetes.
-
+Just use https://microk8s.io/
 
 
 ## Start
 
 ```bash
-vagrant up
+# start the VM
+$ vagrant up
+# SSH into the VM
+$ vagrant ssh
+# Try kubectl
+$ microk8s.kubectl get nodes
+# list addons, there are lots of them :D
+$ microk8s.status
 ```
-
-
-1. Search for vagrant logs for: `This VM has IP address`
-2. SSH into the vagrant box: `vagrant ssh`
-3. Copy the kubeconfig to the local filesystem: `cp /home/vagrant/.kube/config /vagrant/kubeconfig`
-4. Modify the server IP address of the kubeconfig file
-5. `export KUBECONFIG=$PWD/kubeconfig`
-6. Test with: `kubectl get nodes -n kube-system`
-
-
-
 
 
 Feedback and contributions are more than welcome.
